@@ -29,14 +29,27 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("load")
         let formatter = NSNumberFormatter()
         formatter.numberStyle = .CurrencyStyle
         formatter.locale = NSLocale.currentLocale()
-        sliderField.maximumValue=0.40
-        sliderField.minimumValue=0
-        sliderField.value=0.20
-        tipPerLabel.text="%"+String(format: "%.2f", 20.00 )
+        let defaults = NSUserDefaults.standardUserDefaults()
+
+        let doubleValue = defaults.doubleForKey("key2") ?? 0
+        print(doubleValue)
+
+        if doubleValue < 0.40{
+            sliderField.maximumValue=0.40
+            sliderField.minimumValue=0
+
+        }
+        else{
+            sliderField.maximumValue=Float(doubleValue) * 2
+            sliderField.minimumValue=0
+        }
+            sliderField.value=Float(doubleValue)
+            tipPerLabel.text="%"+String(format: "%.2f", Float(doubleValue) )
+        
         numberPeopleSeg.selectedSegmentIndex=0
         
         onePerson.text=formatter.stringFromNumber(0)
@@ -53,6 +66,45 @@ class ViewController: UIViewController {
 
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        super.viewDidLoad()
+        print("load")
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .CurrencyStyle
+        formatter.locale = NSLocale.currentLocale()
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let doubleValue = defaults.doubleForKey("key2") ?? 0
+        
+        print(doubleValue)
+        if doubleValue < 0.40{
+            sliderField.maximumValue=0.40
+            sliderField.minimumValue=0
+            
+        }
+        else{
+            sliderField.maximumValue=Float(doubleValue) * 2
+            sliderField.minimumValue=0
+        }
+        sliderField.value=Float(doubleValue)
+        tipPerLabel.text="%"+String(format: "%.2f", Float(doubleValue) )
+        
+        numberPeopleSeg.selectedSegmentIndex=0
+        
+        onePerson.text=formatter.stringFromNumber(0)
+        twoPerson.text=formatter.stringFromNumber(0)
+        threePerson.text=formatter.stringFromNumber(0)
+        fourPerson.text=formatter.stringFromNumber(0)
+        tipLabel.text=formatter.stringFromNumber(0)
+        
+        totalLabel.text=formatter.stringFromNumber(0)
+        
+        
+        print("view will appear")
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -93,6 +145,7 @@ class ViewController: UIViewController {
     
     
     func keyboardWillShow(notification: NSNotification) {
+        print("keyboard1")
             let yTwo=barrierView.frame.origin.y
             let y=totalTitleLabel.frame.origin.y
             totalTitleLabel.frame.origin.y=numPeopleTitle.frame.origin.y+20
@@ -105,6 +158,8 @@ class ViewController: UIViewController {
         
     }
     func keyboardWillHide(notification: NSNotification) {
+        print("keyboard2")
+
         let yTwo=barrierView.frame.origin.y-31
         let y=totalTitleLabel.frame.origin.y-20
         totalTitleLabel.frame.origin.y=numPeopleTitle.frame.origin.y-10

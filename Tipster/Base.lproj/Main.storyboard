@@ -170,7 +170,13 @@
                             <outletCollection property="gestureRecognizers" destination="Cbu-sy-Kfs" appends="YES" id="B57-jY-TTK"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Tip Calculator" id="tUU-BA-Ago"/>
+                    <navigationItem key="navigationItem" title="Tip Calculator" id="tUU-BA-Ago">
+                        <barButtonItem key="rightBarButtonItem" title="Setting" id="HKV-Ho-aAT">
+                            <connections>
+                                <segue destination="Bno-PC-T7c" kind="push" id="eFU-Yk-TY9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="barrierView" destination="6aa-Q0-q1w" id="LFJ-nd-FyH"/>
                         <outlet property="billField" destination="Dwo-8T-lEw" id="NXf-o9-LIm"/>
@@ -195,6 +201,48 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="685" y="276"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="fs9-YU-m9h">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fwq-ba-HKy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Bno-PC-T7c" customClass="SettingViewController" customModule="Tipster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hTc-d1-BMa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="724618fcc2f7cfc1af77bc2318c2fe44.jpg" id="YUW-LT-pO7">
+                                <rect key="frame" x="0.0" y="29" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="Vir-8Q-JC6">
+                                <rect key="frame" x="203" y="147" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="newDefault:" destination="Bno-PC-T7c" eventType="editingDidEnd" id="iwg-yF-cGG"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="df6-Y5-HhY">
+                                <rect key="frame" x="20" y="151" width="84" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99607849120000003" green="0.99607849120000003" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="7QN-by-6UL"/>
+                    <connections>
+                        <outlet property="tipField" destination="Vir-8Q-JC6" id="AX3-1Z-mg1"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1078" y="281"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GDx-G8-KZ8">
@@ -255,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kao-Lf-zA2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="275" y="-67"/>
+            <point key="canvasLocation" x="261" y="281"/>
         </scene>
     </scenes>
     <resources>
