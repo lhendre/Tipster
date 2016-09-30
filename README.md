@@ -1,4 +1,25 @@
 # Tipster
+[X] Setup XCode
+[X] Familiarize self with Swift
+[X] Build the initial Tip Calculator
+[X] Add a Settings Screen to the Tip Calculator
+[X] Add a Navigation Bar
+[X] Create a Settings View Controller
+[X] Designing the Settings Screen
+[X] Loading and Saving
+[X] View Controller Lifecycle
+[X] Implement both the TipViewController and the SettingsViewController
+[X] Successfully push your code to github
+[X] Can you see the code on github
+[X] Did you add a README.md to the repo on github which includes a GIF walkthrough of the app's functionality
+[X] Submit using the pre-work form
+Optional
+[X] Animating View Properties
+[X] Imported Custome Background
+[X] Updating/Changing Currency Symbol
+[X]  Scrolling Tip calculator
+
+
 gif walkthrough: http://imgur.com/Tpl93pw
 
 This App allows the user to quickly calculate their own tip with a customizable bill, tip, and number of people.  
